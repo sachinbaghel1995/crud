@@ -27,7 +27,10 @@ function save(e) {
        username,
        email
     }
+    
     localStorage.setItem('userdetails',JSON.stringify(obj))
+
+    
     
     // to save as string in local Storage
     // // var fieldValue = document.getElementById('name').value;
