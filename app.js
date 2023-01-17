@@ -16,8 +16,24 @@ function onSubmit(e)
   
 }
 function save(e) {
-    var fieldValue = document.getElementById('name').value;
-    localStorage.setItem('name', fieldValue)
-    var fieldValue2 = document.getElementById('email').value;
-    localStorage.setItem('email', fieldValue2)
+
+    // to save as object in local storage 
+    var username = document.getElementById('name').value;
+    // localStorage.setItem('name',username)
+    var email = document.getElementById('email').value;
+    // localStorage.setItem('email',email)
+
+    let obj = {
+       username,
+       email
+    }
+    localStorage.setItem('userdetails',JSON.stringify(obj))
+    
+    // to save as string in local Storage
+    // // var fieldValue = document.getElementById('name').value;
+    // // localStorage.setItem('name',fieldValue)
+    // // var fieldValue2 = document.getElementById('email').value;
+    // // localStorage.setItem('email',fieldValue2)
+
+
 }
