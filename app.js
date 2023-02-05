@@ -35,14 +35,30 @@ function save(e) {
     username,
     email
   }
-  localStorage.setItem(email, JSON.stringify(obj))
+
+  axios.post('https://crudcrud.com/api/4148077331d14cf2bc8a972173a14901/appointmentapp',obj)
+  .then((response)=>{
+    console.log(response)
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
+  // localStorage.setItem(email, JSON.stringify(obj))
 }
 function removeItem(e) {
 
   if (e.target.classList.contains('delete')) {
+    e.preventDefault()
     if (confirm('Are you sure?')) {
+      var username1 = document.getElementById('name').value;
+      var email1 = document.getElementById('email').value;
       var li = e.target.parentElement
       userList.removeChild(li)
+      let obj = {
+        username1,
+        email1
+      }
+      localStorage.removeItem(email1,JSON.stringify(obj))
     }
   }
 }
