@@ -43,6 +43,8 @@ function save(e) {
   .catch((err)=>{
     console.log(err)
   })
+
+
   // localStorage.setItem(email, JSON.stringify(obj))
 }
 function removeItem(e) {
@@ -72,4 +74,21 @@ function editItem(e) {
       document.getElementById('email').value = obj.email
     }
   }
+}
+
+window.addEventListener('DOMContentLoaded',()=>{
+  axios.get('https://crudcrud.com/api/4148077331d14cf2bc8a972173a14901/appointmentapp')
+  .then((response)=>{
+    console.log(response)
+    for(var i=0;i<response.data.length;i++){
+      showuser0nScreen(response.data[i])
+    }
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
+
+})
+function showuser0nScreen(user){
+  document.getElementById('name').value+' '+document.getElementById('email').value
 }
